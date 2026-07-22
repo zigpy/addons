@@ -1,5 +1,5 @@
 ---
-version: 0.4.0
+version: 0.5.0
 slug: ziggurat
 name: Ziggurat Zigbee Server
 description: Open source host-side Zigbee stack written in Rust
@@ -17,11 +17,13 @@ privileged:
   - SYS_NICE
 options:
   device: null
+  network_address: null
   baudrate: 460800
   flow_control: hardware
   log_level: info
 schema:
-  device: device(subsystem=tty)
+  device: device(subsystem=tty)?
+  network_address: str?
   baudrate: int
   flow_control: list(hardware|software|none)
   log_level: list(error|warn|info|debug|trace)
