@@ -2,16 +2,25 @@
 configuration:
   device:
     name: Device
-    description: The serial port where the OpenThread RCP radio is attached.
+    description: >-
+      The serial port where the OpenThread RCP radio is attached. Required by this
+      form even when Network Address is set (it won't validate otherwise), but the
+      value is ignored once Network Address is set — pick any attached device.
+  network_address:
+    name: Network Address
+    description: >-
+      Connect to the RCP over TCP instead of a local serial port, e.g.
+      tcp://192.168.1.50:6638. Takes priority over Device when set.
   baudrate:
     name: Baudrate
-    description: The serial baudrate of the RCP firmware.
+    description: >-
+      The serial baudrate of the RCP firmware. Ignored if Network Address is set.
   flow_control:
     name: Flow control
     description: >-
       The serial flow control mode. The RCP UART drops bytes under load without
       hardware flow control; only change this if the radio's firmware was built
-      without it.
+      without it. Ignored if Network Address is set.
   log_level:
     name: Log level
     description: >-

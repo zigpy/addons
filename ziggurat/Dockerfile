@@ -4,7 +4,12 @@ FROM rust:1-alpine AS builder
 
 RUN apk add --no-cache musl-dev
 
-ARG ZIGGURAT_VERSION=0.1.0
+# Targets the next zigpy/ziggurat release (the one including TCP RCP-transport
+# support, PR #39) rather than the current 0.1.0 on crates.io, which predates it.
+# zigpy/ziggurat's publish workflow stamps the crate version from the release tag at
+# publish time, not from its Cargo.toml, so the exact next version number is whatever
+# tag its maintainer cuts — confirm/adjust this before merging.
+ARG ZIGGURAT_VERSION=0.2.0
 
 ENV CARGO_PROFILE_RELEASE_LTO=true \
     CARGO_PROFILE_RELEASE_CODEGEN_UNITS=1 \

@@ -12,13 +12,17 @@ declare listen
 
 if bashio::fs.file_exists '/data/options.json'; then
     # Addon mode: Supervisor provides /data/options.json
-    device=$(bashio::config 'device')
+    if bashio::config.has_value 'network_address'; then
+        device=$(bashio::config 'network_address')
+    else
+        device=$(bashio::config 'device')
+    fi
     baudrate=$(bashio::config 'baudrate' '460800')
     flow_control=$(bashio::config 'flow_control' 'hardware')
     log_level=$(bashio::config 'log_level' 'info')
 else
     # Plain Docker mode: configuration comes from the environment variables
-    device="${ZIGGURAT_DEVICE}"
+    device="${ZIGGURAT_NETWORK_ADDRESS:-${ZIGGURAT_DEVICE}}"
     baudrate="${ZIGGURAT_BAUDRATE:-460800}"
     flow_control="${ZIGGURAT_FLOW_CONTROL:-hardware}"
     log_level="${ZIGGURAT_LOG_LEVEL:-info}"
