@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0
+
+ - Bump ziggurat to daa41ff9.
+ - Routing hints API for fast startup with ZHA.
+ - Switch from the JSON API to the binary transport API.
+ - Properly send the transport key to joining Zigbee 3.0 devices.
+ - Many other fixes.
+
 ## 0.2.0
 
  - Bump ziggurat to the 0.1.0 release on crates.io.

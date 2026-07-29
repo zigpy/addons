@@ -1,9 +1,10 @@
 ---
-version: 0.2.0
+version: 0.3.0
 slug: ziggurat
 name: Ziggurat Zigbee Server
 description: Open source host-side Zigbee stack written in Rust
 url: https://github.com/zigpy/ziggurat
+homeassistant: 2026.8.0b0
 arch:
   - aarch64
   - amd64
