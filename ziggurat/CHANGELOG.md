@@ -2,7 +2,7 @@
 
 ## 0.3.0
 
- - Bump ziggurat to daa41ff9.
+ - Bump ziggurat to 96face24.
  - Routing hints API for fast startup with ZHA.
  - Switch from the JSON API to the binary transport API.
  - Properly send the transport key to joining Zigbee 3.0 devices.
