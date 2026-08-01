@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.1
+
+ - Bump ziggurat to 816f6331.
+ - The stack now owns the APS sequence number instead of accepting it from zigpy.
+ - Allow duplicate pending APS ACKs.
+
 ## 0.3.0
 
  - Bump ziggurat to 96face24.
