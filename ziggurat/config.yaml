@@ -1,5 +1,5 @@
 ---
-version: 0.3.0
+version: 0.3.1
 slug: ziggurat
 name: Ziggurat Zigbee Server
 description: Open source host-side Zigbee stack written in Rust
