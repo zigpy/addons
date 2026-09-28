@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0
+
+ - Bump ziggurat to 392d4c7f.
+ - Requires Home Assistant 2026.10.0b0 or newer.
+ - Indicate to the client if incoming packets were APS encrypted.
+
 ## 0.3.1
 
  - Bump ziggurat to 816f6331.
