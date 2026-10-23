@@ -4,7 +4,7 @@ slug: ziggurat
 name: Ziggurat Zigbee Server
 description: Open source host-side Zigbee stack written in Rust
 url: https://github.com/zigpy/ziggurat
-homeassistant: 2026.10.0b0
+homeassistant: 2026.11.0b0
 arch:
   - aarch64
   - amd64
