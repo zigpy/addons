@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.4.0
+
+ - Bump ziggurat to 1e319a4c.
+ - Requires Home Assistant 2026.11.0b0 or newer.
+ - Indicate to the client if incoming packets were APS encrypted.
+ - Add Green Power frame RX support.
+ - Clear End Device Initiator when relaying an end device child's frame.
+
 ## 0.3.1
 
  - Bump ziggurat to 816f6331.
