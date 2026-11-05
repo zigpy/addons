@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.5.0
+
+ - Adds a `network_address` option to connect to the RCP over a raw TCP socket
+   (`tcp://host:port`, e.g. a network-attached RCP or a `ser2net`-style
+   serial-to-TCP bridge) instead of a local serial device. Wi-Fi-connected radios
+   are not recommended — see [zigpy/ziggurat#39](https://github.com/zigpy/ziggurat/pull/39).
+
 ## 0.4.0
 
  - Bump ziggurat to 1e319a4c.
