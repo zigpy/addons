@@ -55,7 +55,7 @@ jobs:
       - name: Skip publishing if the version is already published
         id: published
         env:
-          IMAGE: ${{ steps.info.outputs.image }}
+          IMAGE: ${{ steps.normalize.outputs.registry_prefix }}/${{ steps.normalize.outputs.image_name }}
           VERSION: ${{ steps.normalize.outputs.version }}
           PUBLISH: ${{ inputs.publish }}
         run: |
