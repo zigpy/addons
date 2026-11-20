@@ -24,6 +24,7 @@ jobs:
       url: ${{ steps.normalize.outputs.url }}
       registry_prefix: ${{ steps.normalize.outputs.registry_prefix }}
       version: ${{ steps.normalize.outputs.version }}
+      publish: ${{ steps.published.outputs.publish }}
     steps:
       - name: Check out the repository
         uses: actions/checkout@v6.0.3
@@ -49,6 +50,23 @@ jobs:
           url=${{ steps.info.outputs.url }}
           if [[ -n "$url" && "$url" != "null" ]]; then
             echo "url=${url}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Skip publishing if the version is already published
+        id: published
+        env:
+          IMAGE: ${{ steps.normalize.outputs.registry_prefix }}/${{ steps.normalize.outputs.image_name }}
+          VERSION: ${{ steps.normalize.outputs.version }}
+          PUBLISH: ${{ inputs.publish }}
+        run: |
+          if output=$(docker buildx imagetools inspect "${IMAGE}:${VERSION}" 2>&1); then
+            echo "::notice::${IMAGE}:${VERSION} already exists, it will not be overwritten"
+            echo "publish=false" >> "$GITHUB_OUTPUT"
+          elif [[ "${output}" == *"not found"* ]]; then
+            echo "publish=${PUBLISH}" >> "$GITHUB_OUTPUT"
+          else
+            echo "${output}"
+            exit 1
           fi
 
       - name: Prepare build matrix
@@ -91,13 +109,13 @@ jobs:
             io.hass.name=${{ needs.prepare.outputs.name }}
             io.hass.description=${{ needs.prepare.outputs.description }}
             ${{ needs.prepare.outputs.url && format('io.hass.url={0}', needs.prepare.outputs.url) || '' }}
-          push: ${{ inputs.publish }}
+          push: ${{ needs.prepare.outputs.publish == 'true' }}
           version: ${{ needs.prepare.outputs.version }}
 
   manifest:
     name: Publish multi-arch manifest
     needs: [prepare, build]
-    if: inputs.publish
+    if: needs.prepare.outputs.publish == 'true'
     runs-on: ubuntu-latest
     permissions:
       id-token: write
