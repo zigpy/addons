@@ -3,9 +3,8 @@ configuration:
   device:
     name: Device
     description: >-
-      The serial port where the OpenThread RCP radio is attached. Required by this
-      form even when Network Address is set (it won't validate otherwise), but the
-      value is ignored once Network Address is set — pick any attached device.
+      The serial port where the OpenThread RCP radio is attached. Ignored if
+      Network Address is set.
   network_address:
     name: Network Address
     description: >-
