@@ -38,6 +38,8 @@ declare -a args=(
     --flow-control "${flow_control}"
     --listen "${listen}"
     --log-level "${log_level}"
+    --reconnect-timeout 30
+    --reconnect-on-unresponsive
 )
 
 export RUST_BACKTRACE=full

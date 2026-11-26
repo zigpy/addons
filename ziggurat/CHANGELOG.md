@@ -2,6 +2,17 @@
 
 ## 0.5.0
 
+ - Bump ziggurat to 81ec8c05.
+ - Better routing in large meshes: fewer route request floods, more accurate link
+   quality estimates, and faster recovery when a route breaks.
+ - Ziggurat now tries to reconnect to the radio for up to 30 seconds when the
+   connection drops (e.g. a brief USB disconnect) or the radio stops responding,
+   instead of restarting at once.
+ - Devices that leave and rejoin the network are handled more reliably.
+ - Routers are less likely to be dropped as neighbors by mistake.
+ - Fixes for devices that could get stuck partway through joining.
+ - Fixes the coordinator's neighbor and routing table replies (used by the network
+   map) when a table has more than 255 entries.
  - Adds a `network_address` option to connect to the RCP over a raw TCP socket
    (`tcp://host:port`, e.g. a network-attached RCP or a `ser2net`-style
    serial-to-TCP bridge) instead of a local serial device. Wi-Fi-connected radios
