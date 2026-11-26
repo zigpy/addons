@@ -3,7 +3,7 @@
 ## 0.5.1
 
  - Fix `Missing required option 'network_address'` error when updating or starting
-   the app without a network address set.
+   the app.
 
 ## 0.5.0
 
