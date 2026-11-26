@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.5.1
+
+ - Fix `Missing required option 'network_address'` error when updating or starting
+   the app without a network address set.
+
 ## 0.5.0
 
  - Bump ziggurat to 81ec8c05.

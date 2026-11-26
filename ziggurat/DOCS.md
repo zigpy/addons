@@ -28,10 +28,8 @@ losing the network.
 
 ### Option: `device`
 
-The serial port the 802.15.4 RCP radio is attached to. The add-on's configuration
-form requires a selection here even when using `network_address` — it won't validate
-otherwise — but the value is functionally ignored once `network_address` is set.
-Pick any attached serial device; it won't actually be used.
+The serial port the 802.15.4 RCP radio is attached to. Ignored if `network_address`
+is set.
 
 ### Option: `network_address`
 
